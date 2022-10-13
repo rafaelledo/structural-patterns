@@ -1,22 +1,21 @@
 package br.com.adapter.tvPort.adapters;
 
+import br.com.adapter.tvPort.devices.OldMonitor;
 import br.com.adapter.tvPort.intefaces.HDMI;
-import br.com.adapter.tvPort.intefaces.VGA;
 
-public class HDMIToVGAAdapter implements HDMI {
-	private VGA vga;
+public class HDMIToOldMonitorAdapter extends OldMonitor implements HDMI {
 
-	public HDMIToVGAAdapter(VGA vga) {
-		System.out.println("Conecting the HDMI/VGA adapter...");
-		this.vga = vga;
+	public HDMIToOldMonitorAdapter() {
+		super();
+		System.out.println("Wrapping the VGA's OldMonitor's Interface with a HDMI adapter...");
 	}
-	
+
 	@Override
 	public void setImage(String image) {
 		System.out.println("Converting the image from HDMI to VGA");
-		vga.setImage(image);
+		super.setImage(image);
 	}
-	
+
 	@Override
 	public void setSound(String sound) {
 		System.out.println("Sorry, We don`t work with sound");

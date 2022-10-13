@@ -8,5 +8,5 @@ public class OldMonitor implements VGA {
 	public void setImage(String image) {
 		System.out.println(">>> This is your video: " + image);
 	}
-	
+
 }
