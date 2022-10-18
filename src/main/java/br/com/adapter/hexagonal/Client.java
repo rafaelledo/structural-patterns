@@ -3,23 +3,22 @@ package br.com.adapter.hexagonal;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.com.adapter.hexagonal.application.UserRest;
+import br.com.adapter.hexagonal.app.UserRest;
 
 public class Client {
+  public static void main(String[] args) {
+    UserRest userRestApi = new UserRest();
+    Map<String, String> body = new HashMap<String, String>();
+    body.put("email", "user1@gmail.com");
+    body.put("name", "User 1");
+    body.put("password", "passwd");
+    Integer statusCode = userRestApi.post(body);
+    System.out.println(statusCode);
 
-	public static void main(String[] args) {
-		UserRest userRestApi = new UserRest();
-		Map<String, String> body = new HashMap<String, String>();
-		body.put("email", "user1@email.com");
-		body.put("name", "User 1");
-		body.put("password", "passwd");
-		Integer statusCode = userRestApi.post(body);
-		System.out.println(statusCode);
-		
-		statusCode = userRestApi.get();
-		System.out.println(statusCode);
-		
-		body.put("email", "user2@email.com");
+    statusCode = userRestApi.get();
+    System.out.println(statusCode);
+
+    body.put("email", "user2@email.com");
 		body.put("name", "User 2");
 		statusCode = userRestApi.post(body);
 		System.out.println(statusCode);
@@ -34,5 +33,5 @@ public class Client {
 		
 		statusCode = userRestApi.get();
 		System.out.println(statusCode);
-	}
+  }
 }
